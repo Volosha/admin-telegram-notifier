@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from admin_notifier.bot import start_bot
+from notifier.bot import start_bot
 
 
 class Command(BaseCommand):

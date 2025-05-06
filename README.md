@@ -1,5 +1,6 @@
 
 
+
 ## Установка и запуск
 
 ### 1. Клонирование репозитория
@@ -24,6 +25,17 @@ TELEGRAM_BOT_TOKEN=ваш_токен_бота
 
 ```bash
 docker-compose up -d
+```
+
+После запуска контейнеров необходимо выполнить миграции и создать суперпользователя:
+
+```bash
+docker-compose exec web python manage.py makemigrations
+# Запуск миграций
+docker-compose exec web python manage.py migrate
+
+# Создание суперпользователя
+docker-compose exec web python manage.py createsuperuser
 ```
 
 ### 4. Запуск без Docker
@@ -76,4 +88,3 @@ python manage.py test
 
 ```bash
 pytest
-```

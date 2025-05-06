@@ -34,3 +34,4 @@ def notify_telegram_on_admin_login(sender, request, user, **kwargs):
         logger.info(f"Admin login detected: {user.username} at {timezone.now()}")
 
         # Отправляем уведомление
+        send_admin_login_notification(user.username, timezone.now())

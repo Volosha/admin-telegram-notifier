@@ -34,7 +34,7 @@ def test_subscriber_uniqueness():
 
 
 @pytest.mark.django_db
-@patch('admin_notifier.bot.bot')
+@patch('notifier.bot.bot')
 def test_send_notification_to_subscribers(mock_bot):
     """Тест отправки уведомлений подписчикам"""
     # Создаем тестовых подписчиков
@@ -52,7 +52,7 @@ def test_send_notification_to_subscribers(mock_bot):
 
 
 @pytest.mark.django_db
-@patch('admin_notifier.bot.bot')
+@patch('notifier.bot.bot')
 def test_send_notification_no_subscribers(mock_bot):
     """Тест поведения при отсутствии подписчиков"""
     # Удаляем всех подписчиков если они есть
@@ -66,8 +66,3 @@ def test_send_notification_no_subscribers(mock_bot):
 
     # Проверка, что функция отправки не вызывалась
     mock_bot.send_message.assert_not_called()
-
-
-
-
-
